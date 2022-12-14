@@ -1,0 +1,90 @@
+<nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgb(20, 238, 227); /* For browsers that do not support gradients */
+background-image: linear-gradient(to right, rgb(63, 159, 189) , rgb(42, 53, 63));">
+    <div class="container-fluid">
+      <a class="navbar-brand" >We care</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class=" justify-content-end" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+         
+          <li class="nav-item">
+            <a style="color: white;" class="nav-link" >Call us 98753123456</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
+<div style=" height: 740px;
+background-color: rgb(255, 255, 255); /* For browsers that do not support gradients */
+background-image: linear-gradient(to right, rgb(156, 149, 149) , rgb(42, 42, 63));">
+<div class="container">
+    <div style="margin-left: 150px;" class="row  " >
+        <h2 style="margin-top: 30px;" >Schedule appointment </h2>
+        <div class="col-6 card " style="background-color: azure; font-size: large; color: brown; ">
+            <Label style="color: blue;">Appointment date</Label>
+            <input type="date" [min]="today"  [max]="lday" required #appointmentDate="ngModel" placeholder="yyyy-mm-dd" name="appointmentDate" [(ngModel)]="booking.appointmentDate" class="form-control"  id="">
+            <div *ngIf="appointmentDate.invalid && (appointmentDate.dirty || appointmentDate.touched)"
+            class="alert">
+
+                <div style="color: red;" *ngIf="appointmentDate.errors?.['required']">
+                  Appointment Date is required.
+                </div>
+                <div style="color: red;" *ngIf="appointmentDate.errors?.max">
+                  Can't schedule after one week
+                </div>
+                <div style="color: red;" *ngIf="appointmentDate.errors?.max">
+                  Schedule start today
+                </div>
+
+                
+            </div> 
+             
+            <Label style="color: blue; ">Slot</Label><br>
+            
+            <input type="radio" value="9 AM - 10 AM" required #slot="ngModel" name="slot" [(ngModel)]="booking.slot"  id="">9 AM to 10 AM
+            &nbsp; &nbsp; <hr>
+            <input type="radio" value="10 AM - 11 AM" required #slot="ngModel" name="slot" [(ngModel)]="booking.slot"   id="">10 AM to 11 AM
+             &nbsp; &nbsp;<hr>
+            <input type="radio" value="11 AM - 12 AM" required #slot="ngModel" name="slot" [(ngModel)]="booking.slot"   id="">11 AM to 12 AM
+            &nbsp; &nbsp;<hr>
+            <input type="radio" value="2 PM - 3 PM" required #slot="ngModel" name="slot" [(ngModel)]="booking.slot"  id="">2 PM to 3 PM 
+            &nbsp; &nbsp; <hr>
+            <input type="radio" value="3 PM - 4 PM" required #slot="ngModel" name="slot" [(ngModel)]="booking.slot"   id="">3 PM to 4 PM
+            &nbsp; &nbsp;<hr>
+            <input type="radio" value="4 PM - 5 PM" required #slot="ngModel"  name="slot" [(ngModel)]="booking.slot"   id="">4 PM to 5 PM
+            <div *ngIf="slot.invalid && (slot.dirty || slot.touched)"
+            class="alert">
+
+                <div style="color: red;" *ngIf="slot.errors?.['required']">
+                    Slot is required.
+                </div>
+               
+            </div> 
+                <br>
+            <p style="color: red;" *ngIf="mess==false">Already appointed at this time and date</p>
+
+            <button class="btn btn-success" [disabled]="slot.invalid || appointmentDate.invalid" (click)="bookingAppointment()"  > Book</button> 
+
+            
+        
+            
+        </div>
+        
+    </div>
+<router-outlet></router-outlet>
+
+    <!-- <div *ngIf="submitted == true">
+        
+        <p *ngIf="mess==true">You're booked successfully !</p>
+    </div> -->
+</div>
+</div>
+<footer style=" height: 33px;
+background-color: rgb(20, 238, 227); /* For browsers that do not support gradients */
+background-image: linear-gradient(to right, rgb(63, 159, 189) , rgb(42, 53, 63));" class="Footer">
+  <p style="color: white; text-align: center;">Copyright &copy 2020&nbsp;&nbsp;exam@mail.com</p>
+</footer>
+

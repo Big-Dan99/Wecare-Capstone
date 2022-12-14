@@ -1,0 +1,73 @@
+<div style=" min-height: 740px;
+background-color: rgb(255, 255, 255); /* For browsers that do not support gradients */
+background-image: linear-gradient(to right, rgb(156, 149, 149) , rgb(42, 42, 63));">
+<div class="container">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: rgb(20, 238, 227); /* For browsers that do not support gradients */
+background-image: linear-gradient(to right, rgb(63, 159, 189) , rgb(42, 53, 63));">
+  <div class="container-fluid">
+    <a class="navbar-brand" >Wecare </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class=" justify-content-end"  id="navbarText"> 
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a style="color: white;" class="nav-link " [routerLink]="['/user-profil', userid]" >View Profile </a>
+        </li>
+        <li class="nav-item">
+          <a style="color: white;" class="nav-link" [routerLink]="['/my-appointment', userid]" >My appointment</a>
+        </li>
+        <li class="nav-item">
+          <a style="color: white;" class="nav-link" >Call us 98753123456</a>
+        </li>
+        <li class="nav-item">
+          <a style="color: white;" href="#" class="nav-link" >Logout</a>
+        </li>
+      </ul>
+      
+    </div>
+  </div>
+</nav><br><br>
+<router-outlet></router-outlet>
+
+    <h2>List of coaches</h2>
+    <!-- <button (click)="getuserid()">View profile </button> -->
+    <!-- <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form> -->
+    <nav class="navbar  navbar-light ">
+      <div class="container-fluid justify-content-end">
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" [(ngModel)]="specialite" name="specialite"  (ngModelChange)="Search()" placeholder="Search" aria-label="Search">
+          
+        </form>
+      </div>
+    </nav>
+    <div class="row"> 
+        <div class="col-md-4" *ngFor="let inf of coaches">
+          <div class="card"   style="width: 25rem; height: 460px;">
+            <img src="assets\Resultats-positifs-du-Coaching-en-Entreprise-en-2022.jpg" height="200px" alt="">
+            <div class="card-body">
+                <h1> {{inf.name}}</h1>
+                <h2>{{inf.coachId}}</h2>
+                <h4>Phone number : {{inf.mobileNumber}}</h4>
+                <h4>Speciality : {{inf.speciality}}</h4>
+                <button (click)="bookuserappointment(inf.coachId)" class="btn btn-info">Book an appointment </button>
+            </div>
+        </div>
+        <br><br>
+        </div>
+        
+      </div>
+      
+
+
+  
+</div>
+</div>
+<footer  style=" height: 33px;
+background-color: rgb(20, 238, 227); /* For browsers that do not support gradients */
+background-image: linear-gradient(to right, rgb(63, 159, 189) , rgb(42, 53, 63));" class="Footer">
+  <p style="color: white; text-align: center;">Copyright &copy 2020&nbsp;&nbsp;exam@mail.com</p>
+</footer>

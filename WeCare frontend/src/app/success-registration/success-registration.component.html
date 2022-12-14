@@ -1,0 +1,70 @@
+<div style=" min-height: 780px;
+background-color: rgb(255, 255, 255); /* For browsers that do not support gradients */
+background-image: linear-gradient(to right, rgb(156, 149, 149) , rgb(42, 42, 63));">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: rgb(20, 238, 227); /* For browsers that do not support gradients */
+background-image: linear-gradient(to right, rgb(63, 159, 189) , rgb(42, 53, 63));">
+    <div class="container-fluid">
+      <a class="navbar-brand" >Wecare </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class=" justify-content-end" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link " style="color: white;" [routerLink]="['/coach-profil', coachid]" >View Profile </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color: white;" [routerLink]="['/success-registration', coachid]" >My schedules </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color: white;" >Call us 98753123456</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color: white;" href="#">Logout</a>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </nav><br><br><br><br>
+  <router-outlet></router-outlet>
+  <!-- <div class="card border-primary mb-3" style="max-width: 18rem;">
+    <div class="card-header">Header</div>
+    <div class="card-body text-primary">
+      <h5 class="card-title">Primary card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div> -->
+  <div class="container" >
+      <div class="row" > 
+          <div class="col-md-4" *ngFor="let inf of books">
+            <div class="card border-primary"   style="width: 25rem; height: 400px;">
+              <div class="card-header">Booking id : {{inf.bookingId}}</div>
+              <!-- <img src="assets\Resultats-positifs-du-Coaching-en-Entreprise-en-2022.jpg" height="200px" alt=""> -->
+              <div class="card-body text-primary">
+                  <h1> {{inf.appointmentDate | date}}</h1>
+                  <h1> {{inf.slot}}</h1>
+                  
+                  <h4>Coach Id : {{inf.coachId}}</h4>
+                  <h4>User Id : {{inf.userId}}</h4>
+                  <div >
+
+                  </div>
+                 
+              </div>
+              </div>
+              <br><br>
+          </div>
+          <br><br>
+        </div>
+
+         
+          <!-- <h3 *ngIf="!display" >No planned schedule yet !</h3> -->
+          
+        </div>  
+      </div>
+      <footer class="fixed-bottom"  style=" height: 33px;
+      background-color: rgb(20, 238, 227); /* For browsers that do not support gradients */
+      background-image: linear-gradient(to right, rgb(63, 159, 189) , rgb(42, 53, 63));" class="Footer">
+        <p style="color: white; text-align: center;">Copyright &copy 2020&nbsp;&nbsp;exam@mail.com</p>
+      </footer>

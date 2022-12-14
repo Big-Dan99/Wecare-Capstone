@@ -1,0 +1,65 @@
+<div style=" min-height: 700px;
+background-color: rgb(255, 255, 255); /* For browsers that do not support gradients */
+background-image: linear-gradient(to right, rgb(156, 149, 149) , rgb(42, 42, 63));">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: rgb(20, 238, 227); /* For browsers that do not support gradients */
+background-image: linear-gradient(to right, rgb(63, 159, 189) , rgb(42, 53, 63));">
+  <div class="container-fluid">
+    <a class="navbar-brand" >Wecare </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class=" justify-content-end"  id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a style="color: white;" class="nav-link " [routerLink]="['/user-profil', userid]" >View Profile </a>
+          <!-- (click)="getuserprofile()" -->
+        </li>
+       
+        <li class="nav-item">
+          <a style="color: white;" class="nav-link" >Call us 98753123456</a>
+        </li>
+       
+      </ul>
+      
+    </div>
+  </div>
+</nav><br><br>
+<router-outlet></router-outlet>
+
+<div class="container"><br>
+    <div class="row"> 
+        <div class="col-md-4" *ngFor="let inf of books">
+          <div class="card"   style="width: 25rem; height: 460px;">
+            <!-- <img src="assets\Resultats-positifs-du-Coaching-en-Entreprise-en-2022.jpg" height="200px" alt=""> -->
+            <div class="card-body">
+                <h1> {{inf.appointmentDate | date}}</h1>
+                <h1> {{inf.slot}}</h1>
+                <h3> {{inf.bookingId}}</h3>
+                <h4>User Id : {{inf.userId}}</h4>
+                <h4>Coach Id : {{inf.coachId}}</h4>
+                <button (click)="rescheduleAppointment(inf.bookingId)"  class="btn btn-info">Reschedule Appointment </button><br><br>
+                <!-- (click)="rescheduleAppointment(inf.coachId)" -->
+                <button (click)="deleteAppointment(inf.bookingId)"  class="btn btn-danger">Cancel Appointment </button> 
+                <!-- <div *ngIf="forsure " >
+                  <p style="color: red;">Are you sure you wanna delete ?</p>
+                  <button (click)="deleteAppointment(inf.bookingId)"  class="btn btn-danger" >Yes</button> <button (click)="reload()" class="btn btn-info">No</button>
+                </div> -->
+            </div>
+        </div>
+        <br><br>
+        </div>
+        
+      </div>
+      
+
+      
+</div>
+<button class="btn btn-success justify-content-end" [routerLink]="['/user-homep', userid]" >Go back</button>
+</div>
+<footer class="fixed-bottom"  style=" height: 33px;
+background-color: rgb(20, 238, 227); /* For browsers that do not support gradients */
+background-image: linear-gradient(to right, rgb(63, 159, 189) , rgb(42, 53, 63));" class="Footer">
+  <p style="color: white; text-align: center;">Copyright &copy 2020&nbsp;&nbsp;exam@mail.com</p>
+</footer>
+
+

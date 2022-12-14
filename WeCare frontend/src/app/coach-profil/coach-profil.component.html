@@ -1,0 +1,47 @@
+<div style=" min-height: 780px;
+background-color: rgb(255, 255, 255); /* For browsers that do not support gradients */
+background-image: linear-gradient(to right, rgb(156, 149, 149) , rgb(42, 42, 63));">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: rgb(20, 238, 227); /* For browsers that do not support gradients */
+background-image: linear-gradient(to right, rgb(63, 159, 189) , rgb(42, 53, 63));">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Wecare </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class=" justify-content-end"  id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+       
+        <li class="nav-item">
+          <a style="color: white;" class="nav-link" >Call us 98753123456</a>
+        </li>
+       
+      </ul>
+      
+    </div>
+  </div>
+</nav><br><br>
+<div class="row">
+    <div class="col-md-4">
+      <div class="card"  style="width: 25rem;margin-left: 95%; background-color: rgb(147, 158, 154); ">
+        <img src="assets\user.png" class="card-img-top" style="width : 320px; height : 250px;" alt="">
+        <div class="card-body">
+            <h1>{{coach.name}}</h1>
+            <h2>{{coach.coachId}}</h2>
+            <p>{{coach.speciality}}</p>
+            <p>{{coach.mobileNumber}}</p>
+           
+
+            <button class="btn btn-secondary" [routerLink]="['/success-registration', coach.coachId]">Go back</button>
+        </div>
+    </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
+<footer class="fixed-bottom"  style=" height: 33px;
+background-color: rgb(20, 238, 227); /* For browsers that do not support gradients */
+background-image: linear-gradient(to right, rgb(63, 159, 189) , rgb(42, 53, 63));" class="Footer">
+  <p style="color: white; text-align: center;">Copyright &copy 2020&nbsp;&nbsp;exam@mail.com</p>
+</footer>
+
+

@@ -1,0 +1,194 @@
+<nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgb(20, 238, 227); /* For browsers that do not support gradients */
+background-image: linear-gradient(to right, rgb(63, 159, 189) , rgb(42, 53, 63));">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">We care</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class=" justify-content-end" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+         
+          <li class="nav-item">
+            <a style="color: white;" class="nav-link" >Call us 98753123456</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
+  <div style=" height: 740px;
+  background-color: rgb(255, 255, 255); /* For browsers that do not support gradients */
+  background-image: linear-gradient(to right, rgb(156, 149, 149) , rgb(42, 42, 63));">
+<div class="container">
+    <div class="row " style="margin-left: 250px;"  *ngIf="submitted == false">
+        <div class="col-6  bg-info" >
+            <Label>Name</Label>
+            <input type="text" required minlength="3" maxlength="50" name="name" #name="ngModel" placeholder="Enter your name" [(ngModel)]="user.name" class="form-control"  id="">
+            <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                class="alert">
+
+            <div style="color: red;" *ngIf="name.errors?.['required']">
+                Name is required.
+            </div>
+            <div style="color: red;" *ngIf="name.errors?.['minlength']">
+                Name must be at least 3 characters long.
+            </div>  
+            <div style="color: red;" *ngIf="name.errors?.['maxlength']">
+                Max 50 characters .
+            </div> 
+            </div>
+
+            <Label>Date of birth</Label>
+            <input type="date" required #dateOfBirth="ngModel" placeholder="yyyy-mm-dd" class="form-control" [(ngModel)]="user.dateOfBirth" name="dateOfBirth"  id="">
+            <div *ngIf="dateOfBirth.invalid && (dateOfBirth.dirty || dateOfBirth.touched)"
+            class="alert">
+
+                <div style="color: red;" *ngIf="dateOfBirth.errors?.['required']">
+                    Date of birth is required.
+                </div>
+                
+            </div>
+
+            <Label>Mobile Number</Label>
+            <input type="text" maxlength="10" [pattern]="mob" #mobileNumber="ngModel" placeholder="7783609876" name="mobileNumber" required  [(ngModel)]="user.mobileNumber" class="form-control"  id="">
+            <div *ngIf="mobileNumber.invalid && (mobileNumber.dirty || mobileNumber.touched)"
+            class="alert">
+
+                <div style="color: red;" *ngIf="mobileNumber.errors?.['required']">
+                    mobileNumber is required.
+                </div>
+                <div style="color: red;" *ngIf="mobileNumber.errors?.pattern">
+                    Enter 10 digits please, the first number cannot be 0
+                </div>  
+               
+            </div> 
+
+            <label for="">Email</label>
+            <input type="text" required [pattern]="mail" #Email="ngModel" placeholder="exmpleEmail@gmail.com" class="form-control" name="Email" [(ngModel)]="user.email" placeholder="Enter your email" id="">
+            <div *ngIf="Email.invalid && (Email.dirty || Email.touched)"
+            class="alert">
+
+                <div style="color: red;" *ngIf="Email.errors?.['required']">
+                  Email is required.
+                </div>
+                <div style="color: red;" *ngIf="Email.errors?.pattern">
+                    Please enter a valid email 
+                </div>  
+               
+            </div>
+
+            <label for="">Password</label>
+            <input  type="password" required minlength="5" maxlength="10" placeholder="Password" #Password="ngModel" class="form-control"  name="Password" [(ngModel)]="user.password" id="">
+            <div *ngIf="Password.invalid && (Password.dirty || Password.touched)"
+                class="alert">
+
+            <div style="color: red;" *ngIf="Password.errors?.['required']">
+                Password is required.
+            </div>
+            <div style="color: red;" *ngIf="Password.errors?.['minlength']">
+                Password must be at least 5 characters long.
+            </div>  
+            <div style="color: red;" *ngIf="Password.errors?.['maxlength']">
+                Max 10 characters .
+            </div> 
+          </div> 
+
+            <label for="">PinCode</label>
+            <input type="text" maxlength="6" required placeholder="123456" [pattern]="pin" #PinCode="ngModel" class="form-control" name="PinCode" [(ngModel)]="user.pincode"  id="">
+            <div *ngIf="PinCode.invalid && (PinCode.dirty || PinCode.touched)"
+            class="alert">
+
+                <div style="color: red;" *ngIf="PinCode.errors?.['required']">
+                  PinCode is required.
+                </div>
+                <div style="color: red;" *ngIf="PinCode.errors?.pattern">
+                    Please enter 6 digits, can't start by 0
+                </div>  
+               
+            </div>
+
+            <Label>City</Label>
+            <input type="text" minlength="3" maxlength="20" required placeholder="Enter your city" #City="ngModel" name="City" [(ngModel)]="user.city" class="form-control"  id="">
+            <div *ngIf="City.invalid && (City.dirty || City.touched)"
+            class="alert">
+
+        <div style="color: red;" *ngIf="City.errors?.['required']">
+          City is required.
+        </div>
+        <div style="color: red;" *ngIf="City.errors?.['minlength']">
+          City must be at least 3 characters long.
+        </div>  
+        <div style="color: red;" *ngIf="City.errors?.['maxlength']">
+            Max 20 characters .
+        </div> 
+      </div> 
+
+            <Label>State</Label>
+            <input type="text" minlength="3" maxlength="20" required name="State" #State="ngModel" placeholder="Enter your state" [(ngModel)]="user.state" class="form-control"  id="">
+            <div *ngIf="State.invalid && (State.dirty || State.touched)"
+                class="alert">
+
+            <div style="color: red;" *ngIf="State.errors?.['required']">
+              State is required.
+            </div>
+            <div style="color: red;" *ngIf="State.errors?.['minlength']">
+              State must be at least 3 characters long.
+            </div>  
+            <div style="color: red;" *ngIf="State.errors?.['maxlength']">
+                Max 20 characters .
+            </div> 
+          </div> 
+           
+            <Label>Country</Label>
+            <input type="text" minlength="3" maxlength="20" required placeholder="Enter your country" #Country="ngModel" name="Country" [(ngModel)]="user.country" class="form-control"  id="">
+            <div *ngIf="Country.invalid && (Country.dirty || Country.touched)"
+                class="alert">
+
+            <div style="color: red;" *ngIf="Country.errors?.['required']">
+              Country is required.
+            </div>
+            <div style="color: red;" *ngIf="Country.errors?.['minlength']">
+              Country must be at least 3 characters long.
+            </div>  
+            <div style="color: red;" *ngIf="Country.errors?.['maxlength']">
+                Max 20 characters .
+            </div> 
+          </div> 
+           
+            <Label>Gender</Label><br>
+            <input type="radio" required  value="M" name="Gender" #Gender="ngModel" [(ngModel)]="user.gender"  id="">Male 
+                        &nbsp; &nbsp; &nbsp; &nbsp;
+            <input type="radio" required value="F" name="Gender" #Gender="ngModel" [(ngModel)]="user.gender"   id="">Female
+            <div *ngIf="Gender.invalid && (Gender.dirty || Gender.touched)"
+            class="alert">
+
+                <div style="color: red;" *ngIf="Gender.errors?.['required']">
+                    Gender is required.
+                </div>
+               
+            </div> 
+
+            <br>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
+            <button class="btn btn-success" [disabled]="Password.invalid || dateOfBirth.invalid || name.invalid || mobileNumber.invalid || Gender.invalid || State.invalid || Country.invalid || City.invalid || PinCode.invalid || Email.invalid" (click)="saveUser()"  > Submit </button> 
+    
+        
+            
+        </div>
+        
+    </div>
+
+    
+    <div *ngIf=" submitted == true">
+        <h3>You're registered successfully !  </h3><br>
+        <h3> Your user id is {{Resp}} </h3><br>
+        <button class="btn btn-success" (click)="nowlogin()">Login</button>
+    </div>
+</div>
+</div>
+<footer style=" height: 33px;
+background-color: rgb(20, 238, 227); /* For browsers that do not support gradients */
+background-image: linear-gradient(to right, rgb(63, 159, 189) , rgb(42, 53, 63));" class="Footer">
+  <p style="color: white; text-align: center;">Copyright &copy 2020&nbsp;&nbsp;exam@mail.com</p>
+</footer>
+

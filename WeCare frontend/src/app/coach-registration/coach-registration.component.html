@@ -1,0 +1,135 @@
+<nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgb(20, 238, 227); /* For browsers that do not support gradients */
+background-image: linear-gradient(to right, rgb(63, 159, 189) , rgb(42, 53, 63));">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">We care</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class=" justify-content-end" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+         
+          <li class="nav-item">
+            <a style="color: white;" class="nav-link" >Call us 98753123456</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
+  <div style=" height: 740px;
+background-color: rgb(255, 255, 255); /* For browsers that do not support gradients */
+background-image: linear-gradient(to right, rgb(156, 149, 149) , rgb(42, 42, 63));">
+<div class="container">
+    <div class="row  " style="margin-left: 250px;"  *ngIf="submitted == false">
+        <div class="col-6  bg-info" style="margin-top: 50px;">
+            <Label>Name</Label>
+            <input type="text" required minlength="3" placeholder="Enter you name" maxlength="50" name="name" #name="ngModel" [(ngModel)]="coach.name" class="form-control"  id="">
+            <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                class="alert">
+
+            <div style="color: red;" *ngIf="name.errors?.['required']">
+                Name is required.
+            </div>
+            <div style="color: red;" *ngIf="name.errors?.['minlength']">
+                Name must be at least 3 characters long.
+            </div>  
+            <div style="color: red;" *ngIf="name.errors?.['maxlength']">
+                Max 50 characters .
+            </div> 
+            </div>
+
+
+            <Label>Date of birth</Label>
+            <input type="date" required class="form-control" #dateOfBirth="ngModel" [(ngModel)]="coach.dateOfBirth" name="dateOfBirth" placeholder="yyyy-mm-dd"  id="">
+            <div *ngIf="dateOfBirth.invalid && (dateOfBirth.dirty || dateOfBirth.touched)"
+            class="alert">
+
+                <div style="color: red;" *ngIf="dateOfBirth.errors?.['required']">
+                    Date of birth is required.
+                </div>
+                
+            </div> 
+
+            <Label>Mobile Number</Label>
+            <input type="text" [pattern]="mob" #mobileNumber="ngModel" placeholder="7783609876" name="mobileNumber" required  [(ngModel)]="coach.mobileNumber" class="form-control"  id="">
+            <div *ngIf="mobileNumber.invalid && (mobileNumber.dirty || mobileNumber.touched)"
+            class="alert">
+
+                <div style="color: red;" *ngIf="mobileNumber.errors?.['required']">
+                    mobileNumber is required.
+                </div>
+                <div style="color: red;" *ngIf="mobileNumber.errors?.pattern">
+                    Enter 10 digits please, the first number cannot be 0
+                </div>  
+               
+            </div> 
+
+            <label for="">Password</label>
+            <input type="password" placeholder="Password" required maxlength="10" minlength="5"  class="form-control" name="Password" #Password="ngModel" [(ngModel)]="coach.password" id="">
+            <div *ngIf="Password.invalid && (Password.dirty || Password.touched)"
+                class="alert">
+
+            <div style="color: red;" *ngIf="Password.errors?.['required']">
+                Password is required.
+            </div>
+            <div style="color: red;" *ngIf="Password.errors?.['minlength']">
+                Password must be at least 5 characters long.
+            </div>  
+            <div style="color: red;" *ngIf="Password.errors?.['maxlength']">
+                Max 10 characters .
+            </div> 
+        </div> 
+
+            <Label>Speciality</Label>
+            <input type="text" placeholder="Your speciality" required minlength="10" maxlength="20" name="speciality" #speciality="ngModel" [(ngModel)]="coach.speciality" class="form-control"  id="">
+            <div *ngIf="speciality.invalid && (speciality.dirty || speciality.touched)"
+            class="alert">
+
+                <div style="color: red;" *ngIf="speciality.errors?.['required']">
+                    speciality is required.
+                </div>
+                <div style="color: red;" *ngIf="speciality.errors?.['minlength']">
+                    speciality must be at least 10 characters long.
+                </div>  
+                <div style="color: red;" *ngIf="speciality.errors?.['maxlength']">
+                    Max 20 characters .
+                </div> 
+            </div> 
+            <Label>Gender</Label><br>
+            <input type="radio" required value="M" #Gender="ngModel" name="Gender" [(ngModel)]="coach.gender"  id="">Male 
+                        &nbsp; &nbsp; &nbsp; &nbsp;
+            <input type="radio" required value="F" name="Gender" #Gender="ngModel" [(ngModel)]="coach.gender"   id="">Female
+            <div *ngIf="Gender.invalid && (Gender.dirty || Gender.touched)"
+            class="alert">
+
+                <div style="color: red;" *ngIf="Gender.errors?.['required']">
+                    Gender is required.
+                </div>
+               
+            </div> 
+            <br>
+            
+
+            <button class="btn btn-success" [disabled]="speciality.invalid || Password.invalid || mobileNumber.invalid || dateOfBirth.invalid || name.invalid || Gender.invalid" (click)="saveCoach()"  > Submit </button> 
+    
+            <hr>
+            
+        </div>
+        
+    </div>
+
+    
+    <div *ngIf=" submitted == true">
+        <h3>You're registered successfully !   </h3><br>
+        
+        <h3>Your coach id is {{Resp}}</h3> <br>
+        <button class="btn btn-success" (click)="nowlogin()">Login</button>
+    </div>
+</div>
+</div>
+<footer style=" height: 33px;
+background-color: rgb(20, 238, 227); /* For browsers that do not support gradients */
+background-image: linear-gradient(to right, rgb(63, 159, 189) , rgb(42, 53, 63));" class="Footer">
+  <p style="color: white; text-align: center;">Copyright &copy 2020&nbsp;&nbsp;exam@mail.com</p>
+</footer>
